@@ -1,10 +1,18 @@
-import React, { FC } from 'react';
+import React from 'react';
+import ThisDay from '../../blocks/this-day/this-day';
+import { ThisDayInfo } from '../../blocks/this-day-info/this-day-info';
+import { HomePageWrapper } from './styled';
+import { Days } from '../../blocks/days/days';
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home page</h1>
-    </div>
+    <>
+      <HomePageWrapper>
+        <ThisDay />
+        <ThisDayInfo />
+      </HomePageWrapper>
+      <Days />
+    </>
   );
 }
 
