@@ -8,21 +8,17 @@ interface Props {
 
 interface Tab {
   value: string;
-  id: number;
 }
 
 export function Tabs(props: Props) {
   const tabs: Tab[] = [
     {
-      id: 0,
       value: 'На день',
     },
     {
-      id: 1,
       value: 'На 10 днів',
     },
     {
-      id: 2,
       value: 'На місяць',
     },
   ];
@@ -30,7 +26,7 @@ export function Tabs(props: Props) {
     <StyledTabs>
       <TabsList>
         {tabs.map((tab: Tab) => (
-          <Li key={tab.id}>
+          <Li key={tab.value}>
             <TabItem>{tab.value}</TabItem>
           </Li>))}
       </TabsList>

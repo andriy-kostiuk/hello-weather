@@ -17,6 +17,7 @@ export const Icon = styled.div`
   height: 38px;
   box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
   border-radius: 50%;
+  background-color: ${({theme}) => theme.colors.baseWhite};
   display: flex;
   justify-content: center;
   align-items: center;

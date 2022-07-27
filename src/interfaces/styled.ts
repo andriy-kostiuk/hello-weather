@@ -1,6 +1,6 @@
 export enum ThemeEnum {
   light = 'light',
-  dark = 'dark'
+  dark = 'dark',
 }
 
 export interface ITheme {
@@ -10,6 +10,10 @@ export interface ITheme {
     baseBlue: string
     baseGrey: string
     blue100: string
+    primaryBg: string
+    secondaryBg: string
+    cardBg: string
+    mainText: string
   };
   viewports: {
     mobileWidth: string

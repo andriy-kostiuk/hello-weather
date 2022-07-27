@@ -6,13 +6,14 @@ import PageWrapper from '../layouts/page-wrapper/page-wrapper';
 import { GlobalStyle } from './styles';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
-import { defaultTheme } from '../../themes/default';
 import { AppRouts } from '../../const';
+import { useCustomSelector } from '../../hooks/store';
 
 function App() {
+  const theme = useCustomSelector(state => state.theme.currentTheme);
   return (
     <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Normalize />
         <Routes>

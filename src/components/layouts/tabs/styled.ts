@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Li, Ul } from '../../styled';
+import { Ul } from '../../styled';
+import { ThemeEnum } from '../../../interfaces/styled';
 
 export const StyledTabs = styled.div`
   display: flex;
@@ -37,7 +38,8 @@ export const TabItem = styled.button<ITab>`
   font-size: inherit;
   line-height: inherit;
   border: none;
-  background-color: ${({theme}) => theme.colors.baseWhite};
+  color: ${({theme}) => theme.colors.mainText};
+  background-color: ${({theme}) => theme.type === ThemeEnum.light ? theme.colors.baseWhite : theme.colors.secondaryBg};
 
   :hover {
     background-color: ${({theme}) => theme.colors.blue100};

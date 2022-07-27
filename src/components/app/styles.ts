@@ -21,5 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({theme}) => theme.font.fontSize};
     line-height: ${({theme}) => theme.font.lineHeight};
     font-weight: ${({theme}) => theme.font.fontWeight};
+    background-color: ${({theme}) => theme.colors.primaryBg};
+    color: ${({theme}) => theme.colors.mainText};
   }
 `;
