@@ -12,7 +12,7 @@ import { useCustomSelector } from '../../hooks/store';
 function App() {
   const theme = useCustomSelector(state => state.theme.currentTheme);
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Normalize />
@@ -24,7 +24,7 @@ function App() {
           </Route>
         </Routes>
       </ThemeProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
