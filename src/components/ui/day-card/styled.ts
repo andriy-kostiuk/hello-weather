@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Li, P } from '../../styled';
 
-export const Card = styled(Li)`
+export const Card = styled.div`
   padding: 11px;
   border-radius: 10px;
   width: 148px;
@@ -21,6 +21,11 @@ export const Text = styled(P)<TextProps>`
   margin-bottom: ${(props) => props.$marginBottom ? `${props.$marginBottom}px` : 0};
   font-weight: ${(props) => props.category === 'main' ? 500 : 400};
   font-size: ${(props) => props.category === 'main' ? '18px' : '14px'};
+
+  span {
+    color: ${({theme}) => theme.colors.mainText};
+    font-weight: 500;
+  }
 `;
 
 export const Img = styled.div`

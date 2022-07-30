@@ -1,15 +1,16 @@
 import React from 'react';
 import Select from 'react-select';
-import { ICityOption } from '../../../interfaces/city-option';
 import { ThemeEnum } from '../../../interfaces/styled';
 import { useCustomSelector } from '../../../hooks/store';
+import { Settlement } from '../../../interfaces/settlement';
 
 interface Props {
-  defaultValue: ICityOption,
-  options: ICityOption[]
+  defaultValue: any,
+  options: Settlement[]
+  onChange: (evt: Settlement) => void
 };
 
-export function CitySelect({defaultValue, options}: Props) {
+export function CitySelect({defaultValue, options, onChange}: Props) {
 
   const currentTheme = useCustomSelector(state => state.theme.currentTheme);
   const customStyles = {
@@ -23,11 +24,13 @@ export function CitySelect({defaultValue, options}: Props) {
       color: currentTheme.colors.mainText,
     }),
     menuList: (styles: any) => ({
+      ...styles,
       color: currentTheme.colors.baseBlack,
       backgroundColor: currentTheme.type === ThemeEnum.light ? currentTheme.colors.blue100 : currentTheme.colors.baseWhite,
     }),
   };
   return (
-    <Select options={options} defaultValue={defaultValue} styles={customStyles} />
+    <Select options={options} defaultValue={defaultValue} styles={customStyles}
+            onChange={(evt: Settlement) => onChange(evt)} />
   );
 };

@@ -1,4 +1,4 @@
-export interface ICityOption {
+export interface Settlement {
   value: string;
   label: string;
 }

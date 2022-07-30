@@ -7,7 +7,7 @@ export const StyledPopup = styled.div`
   flex-direction: column;
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 20px;
-  background-color: ${({theme}) => theme.colors.baseWhite};
+  background-color: ${({theme}) => theme.colors.secondaryBg};
   padding: 20px 10px;
   max-width: 750px;
   left: 50%;
@@ -30,6 +30,7 @@ export const StyledPopup = styled.div`
 
 export const Blur = styled.div`
   position: absolute;
+  z-index: 10;
   width: 100%;
   height: 100%;
   top: 0;

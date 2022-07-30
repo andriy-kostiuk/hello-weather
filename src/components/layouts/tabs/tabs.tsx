@@ -1,36 +1,32 @@
 import React from 'react';
 import { StyledTabs, TabItem, TabsList } from './styled';
 import { Li } from '../../styled';
+import { Tab } from '../../blocks/days/days';
 
 interface Props {
-
+  tabs: Tab[];
+  onClick: (index: number) => void;
+  activeTab: number;
 };
 
-interface Tab {
-  value: string;
-}
 
-export function Tabs(props: Props) {
-  const tabs: Tab[] = [
-    {
-      value: 'На день',
-    },
-    {
-      value: 'На 10 днів',
-    },
-    {
-      value: 'На місяць',
-    },
-  ];
+export function Tabs({tabs, onClick, activeTab}: Props) {
+
+  const isActive = (index: number): boolean => {
+    return index === activeTab;
+  };
+
   return (
     <StyledTabs>
       <TabsList>
-        {tabs.map((tab: Tab) => (
+        {tabs.map((tab: Tab, index) => (
           <Li key={tab.value}>
-            <TabItem>{tab.value}</TabItem>
+            <TabItem onClick={() => onClick(index)}
+                     $active={isActive(index)}
+                     disabled={isActive(index)}
+            >{tab.value}</TabItem>
           </Li>))}
       </TabsList>
-      <TabItem>Відмінити</TabItem>
     </StyledTabs>
   );
 };

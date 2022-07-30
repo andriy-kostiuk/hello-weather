@@ -1,11 +1,14 @@
 import React from 'react';
-import { Property } from '../../blocks/this-day-info/this-day-info';
 import { Icon, Wrapper, Title } from './styled';
 import SharedSvgSelector from '../../../assets/icons/shared/shared-svg-selector';
 import { P } from '../../styled';
 
 interface Props {
-  property: Property;
+  property: {
+    title: string
+    icon: string
+    description: string
+  };
 };
 
 export function DayProperty({property}: Props) {

@@ -1,12 +1,21 @@
-import React from 'react';
-import { Section } from '../../styled';
-import { DaysList } from './styled';
+import React, { useState } from 'react';
+import { StyledSection, SwiperStyled } from './styled';
 import { DayCard } from '../../ui/day-card/day-card';
 import { Tabs } from '../../layouts/tabs/tabs';
+import { useCustomSelector } from '../../../hooks/store';
+import { selectForecastWeatherData } from '../../../store/selectors';
+import { Weather } from '../../../interfaces/weather';
+import { SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination, Mousewheel, Scrollbar } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/scrollbar';
 
-interface DaysProps {
+SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
 
-};
+export interface Tab {
+  value: string;
+  content: Weather[];
+}
 
 export interface Day {
   day: string;
@@ -17,70 +26,50 @@ export interface Day {
   info: string;
 }
 
-export function Days(props: DaysProps) {
-  const days: Day[] = [
+export function Days() {
+  const {forecastTomorrow, forecastThreeDays, forecastFiveDays} = useCustomSelector(selectForecastWeatherData);
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  const handlerTabClick = (index: number): void => {
+    setActiveTab(index);
+  };
+
+  const tabs: Tab[] = [
     {
-      day: 'Сьогодні',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'Завтра',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'Понеділок',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'Вівторок',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'Середа',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'Четвер',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
-    }, {
-      day: 'П\'ятниця',
-      day_info: '13 липня',
-      icon_id: 'sun',
-      temp_day: '+19',
-      temp_night: '+15',
-      info: 'Хмарно',
+      value: 'На завтра',
+      content: forecastTomorrow,
+    },
+    {
+      value: 'На 3 дні',
+      content: forecastThreeDays,
+
+    },
+    {
+      value: 'На 5 днів',
+      content: forecastFiveDays,
     },
   ];
 
   return (
     <>
-      <Tabs />
-      <Section>
-        <DaysList>
-          {days.map((day: Day) => (
-            <DayCard key={day.day} day={day} />
-          ))}
-        </DaysList>
-      </Section>
+      <Tabs tabs={tabs} onClick={handlerTabClick} activeTab={activeTab} />
+      <StyledSection>
+        <SwiperStyled
+          spaceBetween={20}
+          direction="horizontal"
+          slidesPerView="auto"
+          scrollbar={{draggable: false}}
+          mousewheel={true}
+          pagination={{
+            type: 'fraction',
+          }}
+        >
+          {tabs[activeTab].content.map((day) => (
+            <SwiperSlide key={day.dt_txt}>
+              <DayCard day={day} />
+            </SwiperSlide>))}
+        </SwiperStyled>
+      </StyledSection>
     </>
   );
 };

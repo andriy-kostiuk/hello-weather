@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Weather } from '../../interfaces/weather';
 import { AxiosResponse } from 'axios';
+import { Settlement } from '../../interfaces/settlement';
 
 interface Response {
   status: number;
@@ -11,16 +12,34 @@ interface CurrentWeather {
   weather: Weather;
   isLoading: boolean;
   response: Response;
+  currentCity: Settlement;
 }
 
 
 const initialState: CurrentWeather = {
-  weather: {},
+  weather: {
+    main: {
+      temp: 0,
+      pressure: 0,
+      feels_like: 0,
+      humidity: 0,
+    },
+    weather: [{
+      main: '',
+      icon: '',
+      description: '',
+    }],
+    wind: {
+      speed: 0,
+      deg: 0,
+    },
+  },
   isLoading: false,
   response: {
     status: 0,
     message: '',
   },
+  currentCity: {value: 'kyiv', label: 'Київ'},
 };
 
 const currentWeatherSlice = createSlice({
@@ -45,8 +64,16 @@ const currentWeatherSlice = createSlice({
         message: action.payload.statusText,
       };
     },
+    setCurrentCity(state, action: PayloadAction<Settlement>) {
+      state.currentCity = action.payload;
+    },
   },
 });
 
-export const {startFetchCurrentWeather, fetchCurrentWeatherSuccess, fetchCurrentWeatherError} = currentWeatherSlice.actions;
+export const {
+  startFetchCurrentWeather,
+  fetchCurrentWeatherSuccess,
+  fetchCurrentWeatherError,
+  setCurrentCity,
+} = currentWeatherSlice.actions;
 export default currentWeatherSlice.reducer;

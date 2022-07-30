@@ -25,10 +25,11 @@ export const TabsList = styled(Ul)`
 `;
 
 interface ITab {
-  active?: boolean;
+  $active?: boolean;
 }
 
 export const TabItem = styled.button<ITab>`
+  width: 100%;
   padding: 15px 20px 15px;
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 5px;
@@ -50,13 +51,18 @@ export const TabItem = styled.button<ITab>`
     color: ${({theme}) => theme.colors.baseWhite};
   }
 
-  ${(props) => props.active ?
+  ${(props) => props.$active ?
           css`
             color: ${({theme}) => theme.colors.baseWhite};
             background-color: ${({theme}) => theme.colors.baseBlue};
+
+            :hover {
+              background-color: ${({theme}) => theme.colors.baseBlue};
+            }
           ` : null};
 
   @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
     padding: 7px 20px 9px;
+    width: auto;
   }
 `;

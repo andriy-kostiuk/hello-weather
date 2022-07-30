@@ -1,22 +1,29 @@
 import React from 'react';
 import { StyledSection, Temperature, Today, Text, Wrapper, Image } from './styled';
-import SharedSvgSelector from '../../../assets/icons/shared/shared-svg-selector';
+import { Weather } from '../../../interfaces/weather';
+import { SharedSvgWeatherIcons } from '../../../assets/icons/shared/shared-svg-weather-icons';
+import { Settlement } from '../../../interfaces/settlement';
 
+interface ThisDayProps {
+  weather: Weather;
+  currentCity: Settlement;
+}
 
-function ThisDay() {
+function ThisDay({weather, currentCity}: ThisDayProps) {
+  const currentTime = new Date().toLocaleTimeString();
   return (
     <StyledSection>
       <Wrapper>
         <div>
-          <Temperature>20°</Temperature>
+          <Temperature>{Math.round(weather.main.temp)}°</Temperature>
           <Today>Сьогодні</Today>
         </div>
         <Image>
-          <SharedSvgSelector id="sun" width={119} height={119}/>
+          <SharedSvgWeatherIcons id={weather.weather[0].icon} width={100} height={100} />
         </Image>
       </Wrapper>
-      <Text $marginBottom={14}>Час: 17:51</Text>
-      <Text>Місто: Київ</Text>
+      <Text $marginBottom={14}>Час: {currentTime}</Text>
+      <Text>Місто: {currentCity.label}</Text>
     </StyledSection>
   );
 }
