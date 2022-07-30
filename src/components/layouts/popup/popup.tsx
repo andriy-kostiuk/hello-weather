@@ -26,7 +26,6 @@ export function Popup({currentCity}: PopupProps) {
   };
 
   const handlerEsc = (evt: KeyboardEvent): void => {
-    console.log(evt);
     if (evt.key === 'Escape') {
       dispatch(setIsOpen(false));
     }

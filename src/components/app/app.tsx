@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate, HashRouter } from 'react-router-dom';
 import HomePage from '../pages/home-page/home-page';
 import StatisticPage from '../pages/statistic-page/statistic-page';
 import PageWrapper from '../layouts/page-wrapper/page-wrapper';
@@ -12,7 +12,7 @@ import { useCustomSelector } from '../../hooks/store';
 function App() {
   const theme = useCustomSelector(state => state.theme.currentTheme);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Normalize />
@@ -24,7 +24,7 @@ function App() {
           </Route>
         </Routes>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
