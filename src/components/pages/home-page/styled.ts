@@ -6,7 +6,6 @@ import ImgCloud from '../../../assets/cloud.png';
 export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   margin-bottom: 50px;
 
   @media (min-width: ${({theme}) => theme.viewports.laptopWidth}) {

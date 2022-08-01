@@ -39,7 +39,7 @@ const initialState: CurrentWeather = {
     status: 0,
     message: '',
   },
-  currentCity: {value: 'kyiv', label: 'Київ'},
+  currentCity: {value: 'Київ', label: 'Київ'},
 };
 
 const currentWeatherSlice = createSlice({

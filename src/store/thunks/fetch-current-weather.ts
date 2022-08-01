@@ -1,5 +1,5 @@
 import { AppDispatch } from '../index';
-import { WeatherService } from '../../components/services/weather-service';
+import { WeatherService } from '../../services/weather-service';
 import {
   fetchCurrentWeatherError,
   fetchCurrentWeatherSuccess, setCurrentCity,

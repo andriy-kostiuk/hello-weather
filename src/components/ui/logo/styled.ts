@@ -5,6 +5,11 @@ export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+
+  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Icon = styled.div`

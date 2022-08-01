@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyledTabs, TabItem, TabsList } from './styled';
-import { Li } from '../../styled';
+import { ListItem, TabItem, TabsList } from './styled';
 import { Tab } from '../../blocks/days/days';
 
 interface Props {
@@ -17,16 +16,14 @@ export function Tabs({tabs, onClick, activeTab}: Props) {
   };
 
   return (
-    <StyledTabs>
-      <TabsList>
-        {tabs.map((tab: Tab, index) => (
-          <Li key={tab.value}>
-            <TabItem onClick={() => onClick(index)}
-                     $active={isActive(index)}
-                     disabled={isActive(index)}
-            >{tab.value}</TabItem>
-          </Li>))}
-      </TabsList>
-    </StyledTabs>
+    <TabsList>
+      {tabs.map((tab: Tab, index) => (
+        <ListItem key={tab.value}>
+          <TabItem onClick={() => onClick(index)}
+                   $active={isActive(index)}
+                   disabled={isActive(index)}
+          >{tab.value}</TabItem>
+        </ListItem>))}
+    </TabsList>
   );
 };

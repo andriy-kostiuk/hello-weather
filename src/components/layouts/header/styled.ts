@@ -7,7 +7,6 @@ export const StyledHeader = styled.header`
   min-height: ${({theme}) => theme.headerHeight};
   display: flex;
   flex-direction: column;
-  gap: 20px;
 
   @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
     flex-direction: row;

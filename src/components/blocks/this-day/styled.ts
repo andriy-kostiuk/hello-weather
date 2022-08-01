@@ -7,6 +7,15 @@ interface IText {
 
 export const StyledSection = styled(Section)`
   padding: 20px;
+  margin-bottom: 20px;
+
+  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: ${({theme}) => theme.viewports.laptopWidth}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Wrapper = styled.div`

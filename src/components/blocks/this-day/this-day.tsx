@@ -3,6 +3,7 @@ import { StyledSection, Temperature, Today, Text, Wrapper, Image } from './style
 import { Weather } from '../../../interfaces/weather';
 import { SharedSvgWeatherIcons } from '../../../assets/icons/shared/shared-svg-weather-icons';
 import { Settlement } from '../../../interfaces/settlement';
+import { Clock } from '../../ui/clock/clock';
 
 interface ThisDayProps {
   weather: Weather;
@@ -10,7 +11,6 @@ interface ThisDayProps {
 }
 
 function ThisDay({weather, currentCity}: ThisDayProps) {
-  const currentTime = new Date().toLocaleTimeString();
   return (
     <StyledSection>
       <Wrapper>
@@ -22,7 +22,7 @@ function ThisDay({weather, currentCity}: ThisDayProps) {
           <SharedSvgWeatherIcons id={weather.weather[0].icon} width={100} height={100} />
         </Image>
       </Wrapper>
-      <Text $marginBottom={14}>Час: {currentTime}</Text>
+      <Text $marginBottom={14}>Час: <Clock /></Text>
       <Text>Місто: {currentCity.label}</Text>
     </StyledSection>
   );

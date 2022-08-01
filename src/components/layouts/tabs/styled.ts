@@ -1,26 +1,27 @@
 import styled, { css } from 'styled-components';
-import { Ul } from '../../styled';
+import { Li, Ul } from '../../styled';
 import { ThemeEnum } from '../../../interfaces/styled';
-
-export const StyledTabs = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 7px;
-
-  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
 
 export const TabsList = styled(Ul)`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  margin-bottom: 10px;
 
   @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
     flex-direction: row;
+  }
+`;
+
+export const ListItem = styled(Li)`
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
+    :not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
   }
 `;
 
