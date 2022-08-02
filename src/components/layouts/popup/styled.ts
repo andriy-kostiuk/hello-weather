@@ -29,7 +29,7 @@ export const StyledPopup = styled.div`
 `;
 
 export const Blur = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 10;
   width: 100%;
   height: 100%;
@@ -88,8 +88,8 @@ export const Close = styled.button`
   cursor: pointer;
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 26px;
+    height: 26px;
   }
 
   &:hover {
