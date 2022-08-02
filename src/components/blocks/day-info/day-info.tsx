@@ -2,7 +2,7 @@ import React from 'react';
 import { Ul } from '../../styled';
 import { DayProperty } from '../../ui/day-property/day-property';
 import { Weather } from '../../../interfaces/weather';
-import { getPrecipitation, getWindDirection } from '../../../utils';
+import { getPrecipitation1h, getPrecipitation3h, getWindDirection } from '../../../utils';
 
 interface DayInfoProps {
   day: Weather;
@@ -35,7 +35,7 @@ export function DayInfo({day}: DayInfoProps) {
       id: 3,
       icon: 'precipitation',
       title: 'Опади',
-      description: getPrecipitation(day.rain?.['3h'], day.snow?.['3h']),
+      description: getPrecipitation1h(day.rain?.['1h'], day.snow?.['1h']) || getPrecipitation3h(day.rain?.['3h'], day.snow?.['3h']) || 'Без опадів',
     },
     {
       id: 4,

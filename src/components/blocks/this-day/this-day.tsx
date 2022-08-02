@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSection, Temperature, Today, Text, Wrapper, Image } from './styled';
+import { StyledDiv, Temperature, Today, Text, Wrapper, Image } from './styled';
 import { Weather } from '../../../interfaces/weather';
 import { SharedSvgWeatherIcons } from '../../../assets/icons/shared/shared-svg-weather-icons';
 import { Settlement } from '../../../interfaces/settlement';
@@ -12,7 +12,7 @@ interface ThisDayProps {
 
 function ThisDay({weather, currentCity}: ThisDayProps) {
   return (
-    <StyledSection>
+    <StyledDiv>
       <Wrapper>
         <div>
           <Temperature>{Math.round(weather.main.temp)}°</Temperature>
@@ -24,7 +24,7 @@ function ThisDay({weather, currentCity}: ThisDayProps) {
       </Wrapper>
       <Text $marginBottom={14}>Час: <Clock /></Text>
       <Text>Місто: {currentCity.label}</Text>
-    </StyledSection>
+    </StyledDiv>
   );
 }
 

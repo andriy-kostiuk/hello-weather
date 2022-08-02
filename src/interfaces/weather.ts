@@ -11,6 +11,7 @@ interface Wind {
 
 interface Precipitation {
   '3h'?: number;
+  '1h'?: number;
 }
 
 export interface Weather {

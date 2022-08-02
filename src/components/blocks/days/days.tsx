@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyledSection, SwiperStyled } from './styled';
 import { DayCard } from '../../ui/day-card/day-card';
 import { Tabs } from '../../layouts/tabs/tabs';
 import { useCustomSelector } from '../../../hooks/store';
@@ -7,6 +6,8 @@ import { selectForecastWeatherData } from '../../../store/selectors';
 import { Weather } from '../../../interfaces/weather';
 import { SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Mousewheel, Scrollbar } from 'swiper';
+import { StyledDiv, SwiperStyled } from './styled';
+import { VisuallyHiddenTitle } from '../../ui/visually-hidden-title/visually-hidden-title';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
@@ -36,24 +37,25 @@ export function Days() {
 
   const tabs: Tab[] = [
     {
-      value: 'На завтра',
+      value: 'на завтра',
       content: forecastTomorrow,
     },
     {
-      value: 'На 3 дні',
+      value: 'на 3 дні',
       content: forecastThreeDays,
 
     },
     {
-      value: 'На 5 днів',
+      value: 'на 5 днів',
       content: forecastFiveDays,
     },
   ];
 
   return (
-    <>
+    <section>
+      <VisuallyHiddenTitle size={2}>{`Прогноз погоди ${tabs[activeTab].value}`}</VisuallyHiddenTitle>
       <Tabs tabs={tabs} onClick={handlerTabClick} activeTab={activeTab} />
-      <StyledSection>
+      <StyledDiv>
         <SwiperStyled
           spaceBetween={20}
           direction="horizontal"
@@ -69,7 +71,7 @@ export function Days() {
               <DayCard day={day} />
             </SwiperSlide>))}
         </SwiperStyled>
-      </StyledSection>
-    </>
+      </StyledDiv>
+    </section>
   );
 };

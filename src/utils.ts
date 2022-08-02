@@ -41,13 +41,22 @@ export const getWindDirection = (deg: number): string => {
   return '';
 };
 
-export const getPrecipitation = (rain?: number, snow?: number): string => {
+export const getPrecipitation3h = (rain?: number, snow?: number): string => {
   if (rain && snow) {
     return `${rain} мм. дощу та ${snow} мм. снігу за останні 3 години`;
   } else if (rain || snow) {
     return `${rain || snow} мм. ${rain ? 'дощу' : 'снігу'} За останні 3 години`;
   }
-  return 'Без опадів';
+  return '';
+};
+
+export const getPrecipitation1h = (rain?: number, snow?: number): string => {
+  if (rain && snow) {
+    return `${rain} мм. дощу та ${snow} мм. снігу за останню годину`;
+  } else if (rain || snow) {
+    return `${rain || snow} мм. ${rain ? 'дощу' : 'снігу'} за останню годину`;
+  }
+  return '';
 };
 
 export const ucFirst = (str: string): string => {

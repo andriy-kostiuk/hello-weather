@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListItem, TabItem, TabsList } from './styled';
 import { Tab } from '../../blocks/days/days';
+import { ucFirst } from '../../../utils';
 
 interface Props {
   tabs: Tab[];
@@ -22,7 +23,7 @@ export function Tabs({tabs, onClick, activeTab}: Props) {
           <TabItem onClick={() => onClick(index)}
                    $active={isActive(index)}
                    disabled={isActive(index)}
-          >{tab.value}</TabItem>
+          >{ucFirst(tab.value)}</TabItem>
         </ListItem>))}
     </TabsList>
   );

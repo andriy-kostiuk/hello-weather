@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { Section } from '../../styled';
+import { Div } from '../../styled';
 
 interface IText {
   $marginBottom?: number;
 }
 
-export const StyledSection = styled(Section)`
+export const StyledDiv = styled(Div)`
   padding: 20px;
   margin-bottom: 20px;
 

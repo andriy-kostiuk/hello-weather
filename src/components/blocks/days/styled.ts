@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section } from '../../styled';
+import { Div } from '../../styled';
 import { Swiper } from 'swiper/react';
 
 export const SwiperStyled = styled(Swiper)`
@@ -19,6 +19,6 @@ export const SwiperStyled = styled(Swiper)`
   }
 `;
 
-export const StyledSection = styled(Section)`
+export const StyledDiv = styled(Div)`
   padding: 20px;
 `;
