@@ -1,17 +1,19 @@
-# Hello Weather
+## Hello Weather
 
-На сайті представлена інформація про погоду в різних містах України. Крім прогнозу температури, є інформація для таких параметрів:
+A dynamic weather information website focused on Ukrainian cities. Users can view real-time weather conditions including:
 
-- швидкість, напрям вітру
-- вид опадів
-- тиск
-- вологість
+- **Wind speed and direction**
+- **Precipitation type**
+- **Atmospheric pressure**
+- **Humidity level**
 
-За допомогою селекту можна вибрати один із обласних центрів, або знайти своє місто ввівши частину його назви.
+The site features a city selector where users can choose from regional centers or search for any city by entering part of its name.
 
-В нижній частині сайту знаходжиться прогноз на 1, 3 та 5 днів у різні частини доби. Натиснувши на відповідну картку
-відкривається вікно із додатковою інфорацією прогнозу.
+At the bottom of the page, users can explore forecasts for **1, 3, and 5 days**, split into different parts of the day. Clicking on a forecast card reveals a detailed modal with extended weather data.
 
-Сайт має дві режими які можна переключати:
-- світлий
-- темний
+The website supports two visual modes:
+
+- **Light mode**
+- **Dark mode**
+
+It offers a clean, responsive, and intuitive interface to ensure an accessible user experience across devices.
