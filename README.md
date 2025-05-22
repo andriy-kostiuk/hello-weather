@@ -1,31 +1,31 @@
 # Hello Weather
 
-Hello Weather is a sleek, user-friendly weather application built with modern web technologies. This application provides real-time weather information and forecasts using the OpenWeather API.
+[Live Demo](https://hello-weather-a-kostiuk.vercel.app/)
 
-## Project Overview
+**Hello Weather** is a sleek, user-friendly weather application built with **React**, **TypeScript**, and **Styled Components**. It provides accurate and current weather data for cities **within Ukraine** using the **OpenWeather API**.
 
-Hello Weather delivers accurate weather data in an elegant interface. Users can search for locations worldwide and instantly receive current conditions and forecasts. The application features a responsive design that adapts seamlessly to any device.
+## 🌍 Project Overview
 
-## Key Features
+Hello Weather delivers reliable weather updates with a clean and responsive interface. Users can search for any Ukrainian city and receive instant information about current weather conditions including temperature, humidity, pressure, and wind speed. The app supports both **light and dark themes**, enhancing usability in any environment.
 
-- **Location-based Weather**: Get current weather information for any city globally
-- **Detailed Forecasts**: View comprehensive weather forecasts including temperature, humidity, wind speed, and more
-- **Responsive Design**: Optimized experience across desktop, tablet, and mobile devices
-- **Geolocation Support**: Option to use device location for instant local weather
-- **Visual Weather Indicators**: Intuitive icons and visuals representing different weather conditions
-- **Dynamic Background**: Interface adapts to current weather conditions and time of day
+Unlike many weather apps, Hello Weather is **focused exclusively on Ukrainian cities** and does not include global search or geolocation features. Visual indicators for weather conditions are replaced with a minimalist text-based UI.
 
-## Technical Implementation
+## ✨ Key Features
 
-The application is built using Next.js for enhanced performance and improved SEO. It leverages the OpenWeather API to fetch accurate and up-to-date weather data. The modern UI is designed for clarity and ease of use, presenting complex weather information in an accessible format.
+- 🌆 **Ukrainian City Search**: Weather data for any location in Ukraine
+- 🌤 **Current Weather Details**: Temperature, humidity, wind speed, and more
+- 🌓 **Theme Switching**: Light and dark modes available
+- 📱 **Responsive Design**: Optimized for mobile, tablet, and desktop
+- 🧠 **Type Safety**: Entire codebase written in TypeScript
+- 💅 **Styled Components**: Modular and dynamic component styling
 
-## Development Goals
+## 🛠️ Technologies Used
 
-This project demonstrates proficiency in:
-- Next.js framework development
-- Third-party API integration
-- Responsive and adaptive design
-- State management
-- Modern UI/UX principles
+- React
+- TypeScript
+- Styled Components
+- OpenWeather API
 
-Hello Weather represents a practical solution for everyday weather information needs while showcasing advanced frontend development techniques.
+## 🎯 Development Goals
+
+To create a fast and elegant weather app tailored for Ukrainian users, with modern frontend tools, a smooth UI, and customizable appearance via theme switching.
